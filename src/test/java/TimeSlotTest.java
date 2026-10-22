@@ -82,4 +82,10 @@ class TimeSlotTest {
         assertNotEquals(slot(10, 11), slot(10, 12));   // different end
         assertNotEquals(slot(10, 11), slot(9, 11));    // different start
     }
+    @Test
+    void toStringShowsStartAndEnd() {
+        String text = slot(10, 11).toString();
+        assertTrue(text.contains("2027-01-11T10:00"));
+        assertTrue(text.contains("2027-01-11T11:00"));
+    }
 }
