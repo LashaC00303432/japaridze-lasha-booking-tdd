@@ -27,10 +27,16 @@ class TimeSlotTest {
          LocalDateTime nine = LocalDateTime.of(2027, 1, 11, 9, 0);
          assertThrows(IllegalArgumentException.class, () -> new TimeSlot(ten, nine));
      }
-     @Test
+    @Test
     void endEqualToStartIsRejected() {
         LocalDateTime ten = LocalDateTime.of(2027, 1, 11, 10, 0);
         assertThrows(IllegalArgumentException.class, () -> new TimeSlot(ten, ten));
+    }
+
+    @Test
+    void nullStartIsRejected() {
+        LocalDateTime ten = LocalDateTime.of(2027, 1, 11, 10, 0);
+        assertThrows(IllegalArgumentException.class, () -> new TimeSlot(null, ten));
     }
     // GIVEN: required parameterised test. Add one row each for:
     // a before b, a inside b, identical, a after b.
