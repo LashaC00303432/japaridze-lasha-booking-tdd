@@ -74,4 +74,12 @@ class TimeSlotTest {
         assertEquals(expected, slot(aStart, aEnd).overlaps(slot(bStart, bEnd)));
         assertEquals(expected, slot(bStart, bEnd).overlaps(slot(aStart, aEnd)));  // A4
     }
+
+    @Test
+    void sameStartAndEndAreEqualWithSameHashCode() {
+        assertEquals(slot(10, 11), slot(10, 11));
+        assertEquals(slot(10, 11).hashCode(), slot(10, 11).hashCode());
+        assertNotEquals(slot(10, 11), slot(10, 12));   // different end
+        assertNotEquals(slot(10, 11), slot(9, 11));    // different start
+    }
 }
