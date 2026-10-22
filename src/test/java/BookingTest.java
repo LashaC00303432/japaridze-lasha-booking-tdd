@@ -1,0 +1,15 @@
+import org.junit.jupiter.api.Test;
+import java.time.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+// YOU WRITE THE TESTS (Part B step 2). One test per test: commit.
+// e.g. getters return what was passed in; same user+room+slot are equal
+// with the same hashCode; a different user (or room, or slot) is not equal.
+class BookingTest {
+
+    private static TimeSlot slot(int startHour, int endHour) {
+        return new TimeSlot(LocalDateTime.of(2027, 1, 11, startHour, 0),
+                            LocalDateTime.of(2027, 1, 11, endHour, 0));
+    }
+
+}
