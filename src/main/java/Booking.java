@@ -1,6 +1,5 @@
-// YOU WRITE THIS (Part B step 2), test first.
-// Two bookings with the same user, room and slot are equal.
-// The booking repository needs equals to delete bookings.
+import java.util.Objects;
+
 public class Booking {
     private final String userId;
     private final String roomId;
@@ -26,11 +25,16 @@ public class Booking {
 
     @Override
     public boolean equals(Object o) {
-        return super.equals(o); // TODO
+        if (this == o) return true;
+        if (!(o instanceof Booking)) return false;
+        Booking other = (Booking) o;
+        return userId.equals(other.userId)
+            && roomId.equals(other.roomId)
+            && slot.equals(other.slot);
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode(); // TODO
+        return Objects.hash(userId, roomId, slot);
     }
 }
