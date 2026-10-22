@@ -33,7 +33,7 @@ public final class TimeSlot {
     }
 
     public Duration duration() {
-        return null; // TODO
+        return Duration.between(start, end);
     }
 
     public boolean overlaps(TimeSlot other) {
