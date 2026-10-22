@@ -38,6 +38,12 @@ class TimeSlotTest {
         LocalDateTime ten = LocalDateTime.of(2027, 1, 11, 10, 0);
         assertThrows(IllegalArgumentException.class, () -> new TimeSlot(null, ten));
     }
+
+    @Test
+    void nullEndIsRejected() {
+        LocalDateTime ten = LocalDateTime.of(2027, 1, 11, 10, 0);
+        assertThrows(IllegalArgumentException.class, () -> new TimeSlot(ten, null));
+    }
     // GIVEN: required parameterised test. Add one row each for:
     // a before b, a inside b, identical, a after b.
     // @ParameterizedTest(name = "{0}-{1} vs {2}-{3} overlaps: {4}")
