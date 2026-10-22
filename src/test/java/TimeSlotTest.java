@@ -21,12 +21,12 @@ class TimeSlotTest {
     }
 
     // GIVEN: worked example (rule A1). Uncomment for your first test: commit.
-    // @Test
-    // void endBeforeStartIsRejected() {
-    //     LocalDateTime ten = LocalDateTime.of(2027, 1, 11, 10, 0);
-    //     LocalDateTime nine = LocalDateTime.of(2027, 1, 11, 9, 0);
-    //     assertThrows(IllegalArgumentException.class, () -> new TimeSlot(ten, nine));
-    // }
+    @Test
+    void endBeforeStartIsRejected() {
+         LocalDateTime ten = LocalDateTime.of(2027, 1, 11, 10, 0);
+         LocalDateTime nine = LocalDateTime.of(2027, 1, 11, 9, 0);
+         assertThrows(IllegalArgumentException.class, () -> new TimeSlot(ten, nine));
+     }
 
     // GIVEN: required parameterised test. Add one row each for:
     // a before b, a inside b, identical, a after b.
