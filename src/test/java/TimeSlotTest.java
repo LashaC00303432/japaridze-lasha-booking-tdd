@@ -4,15 +4,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.time.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-// YOU WRITE THE TESTS (Part A). One test per test: commit.
-//
-// Suggested order:
-//   1. end before start is rejected        (GIVEN below, uncomment it)
-//   2. end equal to start is rejected
-//   3. null start is rejected, then null end (two cycles)
-//   4. duration() of 10:00-11:30 is 90 minutes
-//   5. the parameterised overlap test       (GIVEN below, add 4 rows)
-//   6. equal slots are equal + same hashCode; different slots are not equal
 class TimeSlotTest {
 
     private static TimeSlot slot(int startHour, int endHour) {
@@ -20,7 +11,7 @@ class TimeSlotTest {
                             LocalDateTime.of(2027, 1, 11, endHour, 0));
     }
 
-    // GIVEN: worked example (rule A1). Uncomment for your first test: commit.
+    
     @Test
     void endBeforeStartIsRejected() {
          LocalDateTime ten = LocalDateTime.of(2027, 1, 11, 10, 0);

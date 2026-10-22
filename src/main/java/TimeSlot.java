@@ -1,14 +1,6 @@
 import java.time.*;
 import java.util.Objects;
 
-// YOU WRITE THIS (Part A), test first.
-// Stubs only: they compile but do nothing, so every new test starts red.
-//
-// A1 start and end not null, end strictly after start, else IllegalArgumentException
-// A2 duration() is the time from start to end
-// A3 a slot includes its start but NOT its end (10-11 and 11-12 do not overlap)
-// A4 a.overlaps(b) == b.overlaps(a)
-// A5 same start and end -> equal and same hashCode
 public final class TimeSlot {
 
     private final LocalDateTime start;
@@ -56,6 +48,6 @@ public final class TimeSlot {
 
     @Override
     public String toString() {
-        return super.toString(); // TODO
+        return "TimeSlot[" + start + " to " + end + "]";    
     }
 }
