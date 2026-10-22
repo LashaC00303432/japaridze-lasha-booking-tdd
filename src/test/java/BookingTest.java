@@ -12,4 +12,12 @@ class BookingTest {
                             LocalDateTime.of(2027, 1, 11, endHour, 0));
     }
 
+    @Test
+    void gettersReturnUserRoomAndSlot() {
+        Booking booking = new Booking("alice", "R1", slot(10, 11));
+        assertEquals("alice", booking.getUserId());
+        assertEquals("R1", booking.getRoomId());
+        assertEquals(slot(10, 11), booking.getSlot());
+    }
+
 }
