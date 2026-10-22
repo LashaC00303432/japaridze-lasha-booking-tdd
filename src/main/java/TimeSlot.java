@@ -1,4 +1,5 @@
 import java.time.*;
+import java.util.Objects;
 
 // YOU WRITE THIS (Part A), test first.
 // Stubs only: they compile but do nothing, so every new test starts red.
@@ -40,14 +41,17 @@ public final class TimeSlot {
         return  start.isBefore(other.end) && other.start.isBefore(end);
     }
 
-    @Override
+   @Override
     public boolean equals(Object o) {
-        return super.equals(o); // TODO
+        if (this == o) return true;
+        if (!(o instanceof TimeSlot)) return false;
+        TimeSlot other = (TimeSlot) o;
+        return start.equals(other.start) && end.equals(other.end);
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode(); // TODO
+        return Objects.hash(start, end);
     }
 
     @Override
