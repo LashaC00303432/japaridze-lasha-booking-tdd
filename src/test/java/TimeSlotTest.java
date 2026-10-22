@@ -53,6 +53,12 @@ class TimeSlotTest {
         assertEquals(ten, slot.getStart());
         assertEquals(eleven, slot.getEnd());
     }
+
+    @Test
+    void durationOfTenToElevenThirtyIsNinetyMinutes() {
+        TimeSlot slot = new TimeSlot(LocalDateTime.of(2027, 1, 11, 10, 0),LocalDateTime.of(2027, 1, 11, 11, 30));
+        assertEquals(Duration.ofMinutes(90), slot.duration());
+    }
     // GIVEN: required parameterised test. Add one row each for:
     // a before b, a inside b, identical, a after b.
     // @ParameterizedTest(name = "{0}-{1} vs {2}-{3} overlaps: {4}")
