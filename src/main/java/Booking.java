@@ -2,21 +2,26 @@
 // Two bookings with the same user, room and slot are equal.
 // The booking repository needs equals to delete bookings.
 public class Booking {
+    private final String userId;
+    private final String roomId;
+    private final TimeSlot slot;
 
     public Booking(String userId, String roomId, TimeSlot slot) {
-        // TODO
+        this.userId = userId;
+        this.roomId = roomId;
+        this.slot = slot;
     }
 
     public String getUserId() {
-        return null; // TODO
+        return userId;
     }
 
     public String getRoomId() {
-        return null; // TODO
+        return roomId; 
     }
 
     public TimeSlot getSlot() {
-        return null; // TODO
+        return slot;
     }
 
     @Override
