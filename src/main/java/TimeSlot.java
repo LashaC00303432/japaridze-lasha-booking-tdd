@@ -11,7 +11,9 @@ import java.time.*;
 public final class TimeSlot {
 
     public TimeSlot(LocalDateTime start, LocalDateTime end) {
-        // TODO
+        if(!end.isAfter(start)){
+            throw new IllegalArgumentException("End must be after start");
+        }
     }
 
     public LocalDateTime getStart() {
