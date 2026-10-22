@@ -59,16 +59,19 @@ class TimeSlotTest {
         TimeSlot slot = new TimeSlot(LocalDateTime.of(2027, 1, 11, 10, 0),LocalDateTime.of(2027, 1, 11, 11, 30));
         assertEquals(Duration.ofMinutes(90), slot.duration());
     }
-    // GIVEN: required parameterised test. Add one row each for:
-    // a before b, a inside b, identical, a after b.
-    // @ParameterizedTest(name = "{0}-{1} vs {2}-{3} overlaps: {4}")
-    // @CsvSource({
-    //     "10, 11, 11, 12, false",   // touching
-    //     "10, 12, 11, 13, true",    // partly overlapping
-    //     // add the missing cases here
-    // })
-    // void overlapCases(int aStart, int aEnd, int bStart, int bEnd, boolean expected) {
-    //     assertEquals(expected, slot(aStart, aEnd).overlaps(slot(bStart, bEnd)));
-    //     assertEquals(expected, slot(bStart, bEnd).overlaps(slot(aStart, aEnd)));  // A4
-    // }
+    
+    @ParameterizedTest(name = "{0}-{1} vs {2}-{3} overlaps: {4}")
+    @CsvSource({
+        "10, 11, 11, 12, false",   // touching
+        "10, 12, 11, 13, true",    // partly overlapping
+        "10, 11, 12, 13, false",   // a before b
+        "11, 12, 10, 13, true",    // a inside b
+        "10, 11, 10, 11, true",    // identical
+        "12, 13, 10, 11, false"    // a after b
+    })
+
+    void overlapCases(int aStart, int aEnd, int bStart, int bEnd, boolean expected) {
+        assertEquals(expected, slot(aStart, aEnd).overlaps(slot(bStart, bEnd)));
+        assertEquals(expected, slot(bStart, bEnd).overlaps(slot(aStart, aEnd)));  // A4
+    }
 }
