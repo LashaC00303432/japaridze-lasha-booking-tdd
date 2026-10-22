@@ -37,7 +37,7 @@ public final class TimeSlot {
     }
 
     public boolean overlaps(TimeSlot other) {
-        return false; // TODO
+        return  start.isBefore(other.end) && other.start.isBefore(end);
     }
 
     @Override
