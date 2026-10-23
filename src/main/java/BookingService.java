@@ -16,7 +16,7 @@ public class BookingService {
 
     /** Book a room for a user. Returns the new booking. */
     public Booking book(String userId, String roomId, TimeSlot slot) {
-            return new Booking(userId, roomId, slot);
+        return new Booking(userId, roomId, slot);
     }
 
     /** Cancel a user's booking. */
