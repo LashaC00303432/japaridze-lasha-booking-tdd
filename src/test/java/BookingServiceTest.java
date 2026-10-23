@@ -40,10 +40,9 @@ class BookingServiceTest {
                             LocalDateTime.of(2027, 1, 11, endHour, 0));
     }
 
-    // GIVEN: first test (step 5). Uncomment for your first BookingService test: commit.
-    // @Test
-    // void bookingAFreeRoomReturnsTheBooking() {
-    //     Booking booking = service.book("alice", "R1", slot(10, 11));
-    //     assertEquals(new Booking("alice", "R1", slot(10, 11)), booking);
-    // }
+    @Test
+    void bookingAFreeRoomReturnsTheBooking() {
+        Booking booking = service.book("alice", "R1", slot(10, 11));
+        assertEquals(new Booking("alice", "R1", slot(10, 11)), booking);
+    }
 }

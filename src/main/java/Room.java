@@ -1,4 +1,3 @@
-// YOU WRITE THIS (Part B step 1), test first.
 public class Room {
     private final String id;
     private final String name;
