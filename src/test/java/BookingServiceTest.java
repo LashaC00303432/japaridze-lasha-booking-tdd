@@ -60,4 +60,10 @@ class BookingServiceTest {
     void bookingLongerThanThreeHoursIsRejected() {
         assertThrows(IllegalArgumentException.class, () -> service.book("alice", "R1", slot(10, 14)));
     }
+
+    @Test
+    void overlappingBookingInSameRoomIsRejected() {
+        service.book("alice", "R1", slot(10, 12));
+        assertThrows(IllegalStateException.class, () -> service.book("bob", "R1", slot(11, 13)));
+    }
 }
