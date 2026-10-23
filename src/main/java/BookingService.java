@@ -45,6 +45,7 @@ public class BookingService {
         if (!bookings.findByUser(userId).contains(booking)) {
             throw new IllegalArgumentException("no such booking");
         }
+        bookings.delete(booking);
     }
 
     /** A user's bookings, earliest first. */
