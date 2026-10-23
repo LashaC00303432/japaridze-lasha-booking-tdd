@@ -40,9 +40,11 @@ public class BookingService {
         return booking;
     }
 
-    /** Cancel a user's booking. */
     public void cancel(String userId, String roomId, TimeSlot slot) {
-        throw new UnsupportedOperationException("TODO: implement using TDD");
+        Booking booking = new Booking(userId, roomId, slot);
+        if (!bookings.findByUser(userId).contains(booking)) {
+            throw new IllegalArgumentException("no such booking");
+        }
     }
 
     /** A user's bookings, earliest first. */
