@@ -26,9 +26,14 @@ public class BookingService {
             throw new IllegalArgumentException("slot longer than " + MAX_SLOT);
         }
         for (Booking existing : bookings.findByRoom(roomId)) {
-        if (existing.getSlot().overlaps(slot)) {
-            throw new IllegalStateException("room already booked for " + slot);
+            if (existing.getSlot().overlaps(slot)) {
+                throw new IllegalStateException("room already booked for " + slot);
+            }
         }
+        for (Booking existing : bookings.findByUser(userId)) {
+            if (existing.getSlot().overlaps(slot)) {
+                throw new IllegalStateException(userId + " already has a booking for " + slot);
+            }
         }
         Booking booking = new Booking(userId, roomId, slot);
         bookings.save(booking);
