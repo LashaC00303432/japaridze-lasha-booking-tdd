@@ -18,7 +18,10 @@ public class BookingService {
     public Booking book(String userId, String roomId, TimeSlot slot) {
         if (rooms.findById(roomId) == null) {
             throw new IllegalArgumentException("no such room: " + roomId);
-        }        
+        }    
+        if (slot.getStart().isBefore(LocalDateTime.now(clock))) {
+            throw new IllegalArgumentException("slot must be in the future");
+        }    
         return new Booking(userId, roomId, slot);
     }
 
