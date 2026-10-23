@@ -4,7 +4,7 @@
 
 | Rule | What was unclear | Ruling | My test for it |
 | ---- | ---------------- | ------ | -------------- |
-| R?   |                  |        |                |
+| R2   | "In the future" with now = 09:00: is a slot starting exactly at now (09:00-10:00) allowed? Is a slot that has already started but not ended (08:00-10:00) rejected? Current code allows the first and rejects the second (start.isBefore(now)). | No ruling yet | `bookingASlotInThePastIsRejected` covers 08:00-09:00 only; no test for the two unclear cases until a ruling |
 
 ## AI corrections (at least three)
 
