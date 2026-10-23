@@ -1,6 +1,5 @@
 import java.util.*;
 
-// GIVEN (Appendix). Do not change.
 class MemoryBookingRepository implements IBookingRepository {
     private final List<Booking> bookings = new ArrayList<>();
 

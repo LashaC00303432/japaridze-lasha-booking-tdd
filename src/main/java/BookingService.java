@@ -1,9 +1,6 @@
 import java.time.*;
 import java.util.List;
 
-// GIVEN skeleton. Do not change the method signatures.
-// YOU fill in the method bodies, one rule (R1-R7) at a time, test first.
-// Always use LocalDateTime.now(clock), never LocalDateTime.now().
 public class BookingService {
     public static final Duration MAX_SLOT = Duration.ofHours(3);
 
