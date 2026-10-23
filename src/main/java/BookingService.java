@@ -25,7 +25,14 @@ public class BookingService {
         if (slot.duration().compareTo(MAX_SLOT) > 0) {
             throw new IllegalArgumentException("slot longer than " + MAX_SLOT);
         }
-        return new Booking(userId, roomId, slot);
+        for (Booking existing : bookings.findByRoom(roomId)) {
+        if (existing.getSlot().overlaps(slot)) {
+            throw new IllegalStateException("room already booked for " + slot);
+        }
+        }
+        Booking booking = new Booking(userId, roomId, slot);
+        bookings.save(booking);
+        return booking;
     }
 
     /** Cancel a user's booking. */
